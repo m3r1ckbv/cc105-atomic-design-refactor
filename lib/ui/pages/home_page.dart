@@ -2,7 +2,7 @@
 // template and organisms below. No network, no Firebase; just a demo.
 import 'package:flutter/material.dart';
 import '../../models/product.dart';
-import '../templates/product_card_template.dart';
+import '../templates/product_list_template.dart';
 import '../organisms/custom_appbar.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,11 +34,11 @@ class _HomePageState extends State<HomePage>{
     return ProductListTemplate(
       appBar: const CustomAppBar(title : "Product Catalog", color: Colors.indigo,),
       children: [],
-      // searchBar: SearchBar(onChanged: (value){
-      //   setState(() {
-      //     _searchQuery = value;
-      //   });
-      // }), 
+      searchBar: SearchBar(onChanged: (value){
+        setState(() {
+          _searchQuery = value;
+        });
+      }), 
 
       // addProductForm: AddProduct()
     );

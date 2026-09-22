@@ -1,8 +1,7 @@
 // ORGANISM: a recognizable component — logo + SearchBar molecule + profile
 // icon — composed together, still with no data fetching of its own.
 import 'package:flutter/material.dart' hide SearchBar;
-import 'package:messy_catalog_activity/ui/atoms/app_text.dart';
-import '../atoms/app_icon.dart';
+import '../atoms/app_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   
@@ -17,11 +16,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.indigo,
       title: Row(
         children: [
-          AppIcon(Icons.storefront, size: 28, color:Colors.white),
-          const SizedBox(width: 12),
-          Expanded(child: AppText(title)),
-          const SizedBox(width: 12),
-          AppIcon(Icons.account_circle, color:Colors.white),
+          Expanded(
+              child: AppText(title, color:Colors.white, style: AppTextStyle.title,)
+            ),
         ],
       ),
     );

@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 class ProductListTemplate extends StatelessWidget {
   final PreferredSizeWidget appBar;
   final List<Widget> children;
+  final Widget searchBar;
 
   const ProductListTemplate({
     super.key,
     required this.appBar,
     required this.children,
+    required this.searchBar
   });
 
   @override
