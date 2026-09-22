@@ -1,9 +1,12 @@
 // PAGE: the only file holding the mock product "data" — wires it into the
 // template and organisms below. No network, no Firebase; just a demo.
 import 'package:flutter/material.dart';
+import 'package:messy_catalog_activity/ui/molecules/app_snackbar.dart';
 import '../../models/product.dart';
-import '../templates/product_list_template.dart';
 import '../organisms/custom_appbar.dart';
+import '../organisms/new_product_form.dart';
+import '../organisms/product_card.dart';
+import '../templates/product_list_template.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -27,20 +30,42 @@ class _HomePageState extends State<HomePage>{
 
   @override
   Widget build(BuildContext context) {
-    // final filteredProducts = productList.where((prod) {
-    //   return prod.name.toLowerCase().contains(_searchQuery.toLowerCase());
-    // }).toList();
+    final filteredProducts = productList.where((product) {
+      return product.name.toLowerCase().contains(_searchQuery.toLowerCase());
+    });
 
     return ProductListTemplate(
-      appBar: const CustomAppBar(title : "Product Catalog", color: Colors.indigo,),
-      children: [],
-      searchBar: SearchBar(onChanged: (value){
-        setState(() {
-          _searchQuery = value;
-        });
-      }), 
+  appBar: const CustomAppBar(title: "Messy Catalog", color: Colors.white,),
+  searchBar: SearchBar(
+    onChanged: (value) {
+      setState(() {
+        _searchQuery = value;
+      });
+    },
+  ),
+  newProductForm: ProductForm(
+    onSubmit: (product) {
+      setState(() {
+        productList.add(product);
+      });
+    },
+  ),
+  productCard: filteredProducts.map(
+  (product) => ProductCard(
+    product: product,
+    onAddToCart: () {
+      AppSnackBar.snackBarAppear(context, "Added ${product.name} to cart");
+    },
+    onDelete: () {
+      setState(() {
+        _searchQuery = '';
+        productList.removeWhere((prod) => prod.id == product.id);
+      });
+    },
+  ),
+).toList(),
 
-      // addProductForm: AddProduct()
-    );
+);
+
   }
 }

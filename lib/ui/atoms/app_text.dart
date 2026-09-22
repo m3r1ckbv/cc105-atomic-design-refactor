@@ -20,11 +20,11 @@ class AppText extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
     final textStyle = switch (style) {
-      AppTextStyle.title => theme.titleMedium,
+      AppTextStyle.title => TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: color ?? Colors.black87),
       AppTextStyle.body => theme.bodyMedium,
       AppTextStyle.caption => theme.bodySmall,
-      AppTextStyle.normal => TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
-      AppTextStyle.category => TextStyle(fontSize: 12, color: const Color(0xFFBBBBBB)),
+      AppTextStyle.normal => TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      AppTextStyle.category => TextStyle(fontSize: 13, color: const Color(0xFFBBBBBB)),
       AppTextStyle.price => TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.indigo),
     };
     return Text(text, style: textStyle);

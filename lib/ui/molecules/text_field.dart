@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final TextInputType? inputType;
   final TextEditingController controller;
   final String label;
   final int? maxLines;
   final String? Function(String?)? validator;
 
-  const CustomTextFormField({
+  const CustomTextField({
     super.key,
     this.inputType,
     required this.controller,
@@ -20,7 +20,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      decoration: InputDecoration(labelText: label,),
+      decoration: InputDecoration(labelText: label),
       maxLines: maxLines,
       keyboardType: inputType ?? TextInputType.text,
       validator: validator,

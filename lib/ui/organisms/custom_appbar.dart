@@ -6,9 +6,14 @@ import '../atoms/app_text.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   
   final String title;
-  final Color color;
+  final Color? color;
 
-  const CustomAppBar({super.key, required this.title, required this.color});
+  const CustomAppBar({
+    super.key, 
+    required this.title, 
+    this.color
+    }
+  );
 
   @override
   Widget build(BuildContext context) {

@@ -191,7 +191,7 @@ class _MessyCatalogScreenState extends State<MessyCatalogScreen> {
                         width: 56,
                         height: 56,
                         decoration: BoxDecoration(
-                          color: Colors.indigo.shade50,
+                          color: Colors.indigo,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Icon(

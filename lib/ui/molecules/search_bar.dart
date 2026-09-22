@@ -4,7 +4,11 @@ import '../atoms/app_icon.dart';
 class SearchInput extends StatefulWidget {
   final ValueChanged<String> onChanged;
 
-  const SearchInput({super.key, required this.onChanged});
+  const SearchInput({
+    super.key, 
+    required this.onChanged
+    }
+  );
 
   @override
   State<SearchInput> createState() => _SearchInputState();
@@ -32,7 +36,6 @@ class _SearchInputState extends State<SearchInput> {
               )
             : null,
         filled: true,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(24)),
       ),
     );
   }
