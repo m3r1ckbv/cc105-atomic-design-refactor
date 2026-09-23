@@ -30,14 +30,13 @@ class _SearchInputState extends State<SearchInput> {
         ),
         const SizedBox(height: 8),
         CustomTextField(
-          hintText: "Type a product name...",
           controller: _controller,
           onChanged: (value) {
             setState(() => _hasText = value.isNotEmpty);
           widget.onChanged(value);
           },
           decoration: InputDecoration(
-            label: Text("Type a product name..."),
+            hintText: "Type a product name...",
             suffixIcon: _hasText
               ? IconButton(
                   icon: const AppIcon(Icons.clear, size: 18, color: null),

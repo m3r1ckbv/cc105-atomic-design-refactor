@@ -62,7 +62,7 @@ class _ProductFormState extends State<ProductForm> {
     } else {
       AppSnackBar.snackBarAppear(
         context,
-        'Please check the form and try again.',
+        'Please check the form and try again.'
       );
     }
   }
@@ -76,7 +76,9 @@ class _ProductFormState extends State<ProductForm> {
         children: [
           CustomTextField(
             controller: _nameController,
-            hintText: "Product Name",
+            decoration: InputDecoration(
+              label: Text("Product Name"),
+            ),
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
                 return 'Product name is required';
@@ -88,7 +90,9 @@ class _ProductFormState extends State<ProductForm> {
           CustomTextField(
             controller: _priceController,
             inputType: TextInputType.number,
-            hintText: "Price",
+            decoration: InputDecoration(
+              label: Text("Price"),
+            ),
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
                 return 'Price is required';
@@ -116,9 +120,12 @@ class _ProductFormState extends State<ProductForm> {
           ),
           CustomTextField(
             controller: _descriptionController,
-            hintText: 'Description',
+            decoration: InputDecoration(
+              label: Text('Description'),
+              ),
             maxLines: 3,
           ),
+          SizedBox(height: 12,),
           SizedBox(
             width: double.infinity,
             child: AppButton(

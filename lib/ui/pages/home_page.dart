@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage>{
       setState(() {
         productList.add(product);
       });
+      AppSnackBar.snackBarAppear(context, "${product.name} added to catalog", Colors.green);
     },
   ),
   productCard: filteredProducts.map(
