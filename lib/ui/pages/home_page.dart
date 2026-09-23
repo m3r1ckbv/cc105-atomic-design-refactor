@@ -6,6 +6,7 @@ import '../../models/product.dart';
 import '../organisms/custom_appbar.dart';
 import '../organisms/new_product_form.dart';
 import '../organisms/product_card.dart';
+import '../organisms/search_bar.dart';
 import '../templates/product_list_template.dart';
 
 class HomePage extends StatefulWidget {
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage>{
 
     return ProductListTemplate(
   appBar: const CustomAppBar(title: "Messy Catalog", color: Colors.white,),
-  searchBar: SearchBar(
+  searchBar: SearchInput(
     onChanged: (value) {
       setState(() {
         _searchQuery = value;

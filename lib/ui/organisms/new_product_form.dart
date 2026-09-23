@@ -76,7 +76,7 @@ class _ProductFormState extends State<ProductForm> {
         children: [
           CustomTextField(
             controller: _nameController,
-            label: "Product Name",
+            hintText: "Product Name",
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
                 return 'Product name is required';
@@ -88,7 +88,7 @@ class _ProductFormState extends State<ProductForm> {
           CustomTextField(
             controller: _priceController,
             inputType: TextInputType.number,
-            label: "Price",
+            hintText: "Price",
             validator: (value) {
               if (value == null || value.trim().isEmpty) {
                 return 'Price is required';
@@ -116,7 +116,7 @@ class _ProductFormState extends State<ProductForm> {
           ),
           CustomTextField(
             controller: _descriptionController,
-            label: 'Description',
+            hintText: 'Description',
             maxLines: 3,
           ),
           SizedBox(
